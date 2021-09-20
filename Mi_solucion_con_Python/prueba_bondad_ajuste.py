@@ -12,7 +12,7 @@ def run():
 
     datos = input("Ingrese fi separado por un solo espacio:\n")
     datos = datos.split()
-    datos = [int(x) for x in datos]
+    datos = [float(x) for x in datos]
     
     n_muestra = sum(datos)
 
