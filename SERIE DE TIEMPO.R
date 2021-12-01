@@ -34,11 +34,11 @@ modelomultiplicativo=decompose(turistas.ts,type="mult")
 plot(modelomultiplicativo)
 
 ##Para estimar tendencia (promedio movil centrado)
-tendencia=modelomultiplicativo$trend
+tendencia=modelomultiplicativo$trend ##Cambiar a modeloaditivo si es q lo es
 print(tendencia)
 
 ##Estimar la Estacionalidad
-estacionalidad=modelomultiplicativo$seasonal
+estacionalidad=modelomultiplicativo$seasonal ##Cambiar a modeloaditivo si es q lo es
 print(estacionalidad)
 ndiffs(turistas.ts) ##Identifica el número de diferencias a realizar
 
@@ -49,9 +49,9 @@ ts.plot(cbind(tendencia,tendencia*estacionalidad),lty=1:2)
 ##ANÁLISIS DE ESTACIONALIDAD
 seasonplot(turistas.ts,col=rainbow(12),year.labels = TRUE)
 
-##Función de autocorrelación
+##Función de autocorrelación -> No tiene que haber autocorrelacion o sea (#difera pqa == 0)
 acf(turistas.ts)
-ndiffs(turistas.ts)
+ndiffs(turistas.ts) ##Numero de diferencias para quitar autocorrelacion
 
 ##Cuando no es estacionaria
 seriedif=diff(turistas.ts)
@@ -67,8 +67,8 @@ plot(seriedif)
 acf(seriedif,main="Serie estacionaria")
 seriedif
 
-data2 <- data.frame(y, x)
-data2
+#data2 <- data.frame(y, x)
+#data2
 
 ##MODELO DE Tendencia
 ##Desde Excel
